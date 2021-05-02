@@ -58,7 +58,8 @@ div_title = html.Div(children =	html.H1('Homework 6(Dash/Plotly)'),
 
 # -------------------------------------------------------------------------------------- DIV for first raw (1.1 and 1.2)
 chess_df = pd.read_csv('games.csv')
-turns_hist = go.Figure([go.Histogram(x=chess_df['turns'])])
+turns_hist = go.Figure([go.Histogram(x=chess_df['turns'],
+									 name='Histogram of turns')])
 
 graph_1=html.Div(children =dcc.Graph (id = 'histogram',
 					figure = turns_hist,
@@ -66,7 +67,7 @@ graph_1=html.Div(children =dcc.Graph (id = 'histogram',
 							'height': sizes['subblock-heights']}
 					))
 
-div_1_1 = html.Div(children = 'Graph_1',
+div_1_1 = html.Div(children = graph_1,
 					style = {
 							'border': '1px {} solid'.format(colors['block-borders']),
 							'margin': margins['block-margins'],
@@ -75,9 +76,17 @@ div_1_1 = html.Div(children = 'Graph_1',
 					}
 				)
 
+box_plot=go.Figure(go.Box(x=chess_df['white_rating'],
+                     # hovertext=chess_df['winner'],
+                     name='Box plot'))
 
 
-div_1_2 = html.Div(children = 'Graph_2',
+graph_2=html.Div(children=dcc.Graph(id='box_plot',
+	figure=box_plot,
+	style = {'margin': margins['block-margins'],
+			'height': sizes['subblock-heights']}))
+
+div_1_2 = html.Div(children = graph_2,
 					style = {
 							'border': '1px {} solid'.format(colors['block-borders']),
 							'margin': margins['block-margins'],
@@ -85,13 +94,7 @@ div_1_2 = html.Div(children = 'Graph_2',
 							'height': sizes['subblock-heights']
 					}
 				)
-box_plot=go.Box(x=chess_df['white_rating'],
-                     hovertext=chess_df['winner'],
-                     name='Box plot')
-graph_2=html.Div(children=dcc.Graph(id='box_plot',
-	figure=box_plot,
-	style = {'margin': margins['block-margins'],
-			'height': sizes['subblock-heights']}))
+
 
 
 
@@ -112,7 +115,16 @@ div_raw1 = html.Div(children =[div_1_1,
 
 
 # -------------------------------------------------------------------------------------- DIV for second raw (2.1 and 2.2)
-div_2_1 = html.Div(children = 'Graph_3',
+scatter_plot=go.Figure(go.Scatter(x=chess_df['white_rating'],y=chess_df['black_rating'],
+                     hovertext=chess_df['winner']
+								  ,name='Scatter plot'
+								  ,mode = 'markers'))
+graph_3=html.Div(children=dcc.Graph(id='scatter_plot',
+	figure=scatter_plot,
+	style = {'margin': margins['block-margins'],
+			'height': sizes['subblock-heights']}))
+
+div_2_1 = html.Div(children = graph_3,
 					style ={
 							'border': '1px {} solid'.format(colors['block-borders']),
 							'margin': margins['block-margins'],
@@ -121,15 +133,17 @@ div_2_1 = html.Div(children = 'Graph_3',
 					}
 				)
 
-scatter_plot=go.Scatter(x=chess_df['white_rating'],y=chess_df['black_rating'],
-                     hovertext=chess_df['winner'],name='Scatter plot')
-graph_3=html.Div(children=dcc.Graph(id='scatter_plot',
-	figure=scatter_plot,
+
+scatter_plot_2=go.Figure(go.Scatter(x=chess_df['white_rating'],y=chess_df['turns'],
+                     hovertext=chess_df['opening_name'],
+						  name='Scatter plot 2',
+									mode = 'markers'))
+graph_4=html.Div(children=dcc.Graph(id='scatter_plot_2',
+	figure=scatter_plot_2,
 	style = {'margin': margins['block-margins'],
 			'height': sizes['subblock-heights']}))
 
-
-div_2_2 = html.Div(children = 'Graph_4',
+div_2_2 = html.Div(children = graph_4,
 					style = {
 							'border': '1px {} solid'.format(colors['block-borders']),
 							'margin': margins['block-margins'],
@@ -138,12 +152,7 @@ div_2_2 = html.Div(children = 'Graph_4',
 					}
 				)
 
-scatter_plot_2=go.Scatter(x=chess_df['white_rating'],y=chess_df['turns'],
-                     hovertext=chess_df['opening_name'],name='Scatter plot 2')
-graph_4=html.Div(children=dcc.Graph(id='scatter_plot',
-	figure=scatter_plot_2,
-	style = {'margin': margins['block-margins'],
-			'height': sizes['subblock-heights']}))
+
 
 div_raw2 = html.Div(children =	[div_2_1,
 								div_2_2
@@ -179,4 +188,4 @@ app.layout = html.Div(	[
 # >> use __ debug=True __ in order to be able to see the changes after refreshing the browser tab,
 #			 don't forget to save this file before refreshing
 # >> use __ port = 8081 __ or other number to be able to run several apps simultaneously
-app.run_server(debug=True,  port = 8082)
+app.run_server(debug=True,  port = 8083)
