@@ -1,0 +1,39 @@
+.banner {
+	height: :75px;
+	/*margin: 0px -10px 10px;*/
+	background-color: rgb(66,196,247);
+	/*border-radius: 2px;*/
+}
+
+.banner h1{
+	font-family: "Lato", sans-serif;
+	color: white;
+	padding-top: 10px;
+	margin-left: 2%;
+	display: inline-block;
+}
+
+.banner h2{
+	font-family: "Lato", sans-serif;
+	color: white;
+	/*padding-top: 10px;*/
+	/*margin-left: 2%;*/
+	/*display: inline-block;*/
+}
+
+.banner Img{
+	position: relative;
+	float: right;
+	right: 10px;
+	height: 75px;
+}
+
+.card {
+    margin-bottom: 100px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
+}
+
+.menu-title {
+    margin-bottom: 6px;
+    font-weight: bold;
+}
