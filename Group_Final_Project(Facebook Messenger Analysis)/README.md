@@ -1,7 +1,6 @@
 # Individual _Final_Project(Insurance_Visualization_Plotly)
  Analyzy Insurance Market of Armenia
 
-![Slide2](https://user-images.githubusercontent.com/58246780/119746974-c4c29d00-bea2-11eb-8335-139ca76a8e35.PNG)
 
 ***The greatest value of a picture is when it forces us to notice what we never expected to see.*** **John Tukey**
 
