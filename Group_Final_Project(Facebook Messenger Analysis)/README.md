@@ -46,7 +46,7 @@ In general, the process was very interesting and we learned how to extract usefu
     <li>E-mail:   tirabyan0599@gmail.com</li>
     <li>LinkedIn: <a href="https://www.linkedin.com/in/tigranuhi-tirabyan-aa3887212/">Tigranuhi Tirabyan</a></li>
     <li>GitHub:   <a href="https://github.com/Tigranuhi99">Tigranuhi Tirabyan</a></li>
-    <li>Phone:    +37498641815</li>
+    <li>Phone:    +37477746434</li>
     </ul>
 
 <h4 align="left">Supervised by</h4>
